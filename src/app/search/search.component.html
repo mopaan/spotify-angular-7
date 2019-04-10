@@ -1,0 +1,39 @@
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<p></p>
+<h1>Need Music ?</h1>
+<p class="need">Use MySpotify App to find new musics !</p>
+<form>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="searchStr" class='form-control' placeholder="Search Music ..."
+      [ngModelOptions]="{standalone: true}">
+  </div>
+  <button type="submit" (click)="searchMusic()" name="submit" class="button"
+    style="vertical-align:middle"><span>Search</span></button>
+</form>
+
+<body class="w3-black">
+  <ng-container *ngIf=" resultSearch !== null">
+    <div *ngFor="let artist of  ">
+      <div class="w3-content w3-padding" style="max-width:1564px">
+
+        <div class="w3-row-padding">
+          <div class="w3-col l3 m6 w3-margin-bottom">
+            <div class="w3-display-container">
+              <div class="w3-display-topleft w3-black w3-padding">{{artist.name}}</div>
+              <img *ngIf="artist.images.length > 0" [src]="artist.images[0].url" alt="No images" class="w3-image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</body>
+
+</html>
